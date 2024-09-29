@@ -162,3 +162,5 @@ cython_debug/
 .idea/
 
 *.m4a
+
+temporal_pkg/

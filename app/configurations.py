@@ -16,6 +16,8 @@ class Configs(pydantic_settings.BaseSettings):
     text_key: str
     embedding_model_name: str
     pinecone_api_key: str
+    # dynamodb
+    table_name: str
 
 
 configs = Configs()

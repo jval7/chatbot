@@ -49,7 +49,7 @@ class BootStrap:
                 tools=tools, llm=llm, memory_key="chat_history"
             )
         if not self._db:
-            self._db = adapters.InMemoryChatRepository()
+            self._db = adapters.DynamoDb(table_name=configurations.configs.table_name)
         if not self._transcriber:
             self._transcriber = adapters.OpenAITranscriptionClient(
                 api_key=configurations.configs.openai_api_key,
