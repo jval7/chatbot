@@ -1,19 +1,19 @@
-
+#@url_base = https://0123456789.execute-api.us-east-1.amazonaws.com
+@url_base = http://localhost:8001/
 ### Start a new chat
-POST http://localhost:8001/chats/
+POST {{url_base}}/chats/
 Content-Type: application/json
 
 ### Continue an existing chat with text query
-POST http://localhost:8001/chats/XeTrppZ5CYsi6Tr3JaNV23/continue/
+POST {{url_base}}/chats/XeTrppZ5CYsi6Tr3JaNV23/continue/
 Content-Type: application/json
 
 {
   "query": "cual es mi nombre?"
-
 }
 
 ### Continue an existing chat with text query
-POST http://localhost:8001/chats/XeTrppZ5CYsi6Tr3JaNV23/continue-with-voice/
+POST {{url_base}}/chats/XeTrppZ5CYsi6Tr3JaNV23/continue-with-voice/
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary

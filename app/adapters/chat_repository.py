@@ -21,7 +21,7 @@ class InMemoryChatRepository(ports.ChatRepository):
 
 class DynamoDb(ports.ChatRepository):
     def __init__(self, table_name: str) -> None:
-        self._client = boto3.resource("dynamodb")
+        self._client = boto3.resource("dynamodb", region_name="us-east-1")
         self._table = self._client.Table(table_name)
 
     def save_chat(self, chat: models.Chat) -> None:
