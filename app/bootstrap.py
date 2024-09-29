@@ -5,6 +5,7 @@ from app import configurations
 from app.domain import ports
 from app.services import usecases
 from app.logs import logger
+from langfuse.callback import CallbackHandler
 
 
 class BootStrap:
@@ -24,6 +25,7 @@ class BootStrap:
         if self._chat_service:
             logger.info("Returning existing chat service")
             return self._chat_service
+
         if not self._db:
             logger.info("Creating DynamoDb instance")
             self._db = adapters.InMemoryChatRepository()
@@ -44,10 +46,15 @@ class BootStrap:
                 text_key=configurations.configs.text_key,
                 pinecone_api_key=configurations.configs.pinecone_api_key,
             ).get_chain()
+            langfuse_handler = CallbackHandler(
+                secret_key=configurations.configs.langfuse_secret_key,
+                public_key=configurations.configs.langfuse_pb_key,
+                host=configurations.configs.langfuse_host,
+            )
             tools = [
                 adapters.ToolConfig(
                     name="Knowledge Base",
-                    func=retriever.run,
+                    func=lambda x: retriever.run(query=x, callbacks=[langfuse_handler]),
                     description=(
                         "use this tool when answering general knowledge queries to get "
                         "more information about the topic"

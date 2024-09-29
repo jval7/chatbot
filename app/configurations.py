@@ -18,6 +18,10 @@ class Configs(pydantic_settings.BaseSettings):
     pinecone_api_key: str
     # dynamodb
     table_name: str
+    # langfuse
+    langfuse_secret_key: str
+    langfuse_pb_key: str
+    langfuse_host: str
 
 
 configs = Configs()

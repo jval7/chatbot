@@ -1,15 +1,16 @@
 #@url_base = https://0123456789.execute-api.us-east-1.amazonaws.com
 @url_base = http://localhost:8001/
+#@url_base = http://44.202.232.224
 ### Start a new chat
 POST {{url_base}}/chats/
 Content-Type: application/json
 
 ### Continue an existing chat with text query
-POST {{url_base}}/chats/XeTrppZ5CYsi6Tr3JaNV23/continue/
+POST {{url_base}}/chats/YyX3cKGhw6oaajqRS5ABHn/continue
 Content-Type: application/json
 
 {
-  "query": "cual es mi nombre?"
+  "query":"when was the college of engineering in the University of Notre Dame established?"
 }
 
 ### Continue an existing chat with text query
