@@ -44,7 +44,7 @@ class Agent(AgentPort):
         )
 
     def __call__(self, query: str) -> dict[str, Any]:
-        return cast(dict[str, Any], self._agent(query=query))
+        return cast(dict[str, Any], self._agent(query))
 
     def get_conversation_history(self) -> list[ai.BaseMessage]:
         conversations = self._memory.load_memory_variables({})

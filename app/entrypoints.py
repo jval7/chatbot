@@ -5,6 +5,7 @@ from fastapi import Depends, UploadFile, HTTPException
 from fastapi import routing
 
 from app.bootstrap import BootStrap
+from app.logs import logger
 from app.services.usecases import ChatService, NoChatFound, InputNotProvided
 
 rag_router = routing.APIRouter()
@@ -28,6 +29,7 @@ async def continue_chat(
     request_param: ContinueChatInput | None = None,
     service: ChatService = Depends(bs.get_chat_service),
 ) -> dict:
+    logger.info(f"request_param: {request_param}")
     query = None
     if request_param:
         query = request_param.query
