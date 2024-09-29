@@ -1,4 +1,5 @@
 from app.domain import ports, models
+from app.logs import logger
 
 
 class ChatService:
@@ -14,7 +15,9 @@ class ChatService:
 
     def start_conversation(self) -> str:
         chat_model = models.Chat()
+        logger.info("Saving chat")
         self._db.save_chat(chat_model)
+        logger.info("Chat saved")
         return chat_model.id
 
     def continue_conversation(

@@ -166,3 +166,4 @@ cython_debug/
 temporal_pkg/
 
 *.zip
+*.pem
