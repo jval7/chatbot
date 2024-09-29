@@ -1,0 +1,29 @@
+
+### Start a new chat
+POST http://localhost:8001/chats/
+Content-Type: application/json
+
+### Continue an existing chat with text query
+POST http://localhost:8001/chats/XeTrppZ5CYsi6Tr3JaNV23/continue/
+Content-Type: application/json
+
+{
+  "query": "cual es mi nombre?"
+
+}
+
+### Continue an existing chat with text query
+POST http://localhost:8001/chats/XeTrppZ5CYsi6Tr3JaNV23/continue-with-voice/
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="query"
+
+test
+--boundary
+Content-Disposition: form-data; name="voice_file"; filename="test.m4a"
+Content-Type: audio/m4a
+
+< ./test.m4a
+--boundary--
+
