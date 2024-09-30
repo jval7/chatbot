@@ -1,3 +1,4 @@
+import io
 from typing import cast
 
 import requests
@@ -21,8 +22,7 @@ class OpenAITranscriptionClient(ports.TranscriptionPort):
         headers = {
             "Authorization": f"Bearer {self._api_key}",
         }
-        path_file = "./test.m4a"
-        files = {"file": open(path_file, "rb")}
+        files = {"file": ("audio.m4a", io.BytesIO(audio_file), "audio/m4a")}
         data = {"model": self._model}
         response = self._client.post(
             url=self._api_url, headers=headers, files=files, data=data

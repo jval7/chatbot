@@ -32,13 +32,3 @@ class DynamoDb(ports.ChatRepository):
         if "Item" not in response:
             return None
         return models.Chat(id=chat_id, conversation=response["Item"]["conversation"])
-
-    # def save_agenda(self, agenda: models.Agenda) -> None:
-    #     self._table.put_item(Item=agenda.model_dump())
-    #
-    # def get_agenda(self, agenda_id: str) -> models.Agenda:
-    #     response = self._table.get_item(Key={"id": agenda_id})
-    #     if "Item" not in response:
-    #         raise exceptions.AgentNotFound("Agenda not found")
-    #     print(response)
-    #     return cast(models.Agenda, models.Agenda.parse_obj(response["Item"]))

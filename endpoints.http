@@ -1,6 +1,6 @@
 #@url_base = https://0123456789.execute-api.us-east-1.amazonaws.com
-@url_base = http://localhost:8001/
-#@url_base = http://44.202.232.224
+#@url_base = http://localhost:8001/
+@url_base = http://3.86.151.171
 ### Start a new chat
 POST {{url_base}}/chats/
 Content-Type: application/json
