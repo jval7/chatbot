@@ -1,20 +1,19 @@
-#@url_base = https://0123456789.execute-api.us-east-1.amazonaws.com
-#@url_base = http://localhost:8001/
-@url_base = http://3.86.151.171
+@url_base = http://localhost:8001/
+#@url_base = http://3.86.151.171
 ### Start a new chat
 POST {{url_base}}/chats/
 Content-Type: application/json
 
 ### Continue an existing chat with text query
-POST {{url_base}}/chats/YyX3cKGhw6oaajqRS5ABHn/continue
+POST {{url_base}}/chats/bEE5zJK32698ZVTqGhhAYq/continue
 Content-Type: application/json
 
 {
-  "query":"when was the college of engineering in the University of Notre Dame established?"
+  "query":"Hi, in a communication process, what is feedback?"
 }
 
 ### Continue an existing chat with text query
-POST {{url_base}}/chats/XeTrppZ5CYsi6Tr3JaNV23/continue-with-voice/
+POST {{url_base}}/chats/LFvxgmfP3fFSZBMtCNJ4DX/continue-with-voice/
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
