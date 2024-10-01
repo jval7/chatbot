@@ -18,6 +18,9 @@ The system is designed to facilitate seamless conversations and interactions thr
 - To transcribe audio inputs into text.
 - To handle user queries and provide appropriate responses. 
 
+### 1.3 Architecture:
+![Alt text](arch.png)
+
 ### 1.3 Capabilities:  
 - Chat Management: The system can save and retrieve chat conversations using a repository pattern.
 - Audio Transcription: It can transcribe audio files into text using an external transcription service.

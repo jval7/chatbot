@@ -5,15 +5,15 @@ POST {{url_base}}/chats/
 Content-Type: application/json
 
 ### Continue an existing chat with text query
-POST {{url_base}}/chats/bEE5zJK32698ZVTqGhhAYq/continue
+POST {{url_base}}/chats/5ZdwctcCKCei2yNakjohAx/continue
 Content-Type: application/json
 
 {
-  "query":"Hi, in a communication process, what is feedback?"
+  "query":"regarding soft skills what is AUTO MESSAGE RESPONDER?"
 }
 
 ### Continue an existing chat with text query
-POST {{url_base}}/chats/LFvxgmfP3fFSZBMtCNJ4DX/continue-with-voice/
+POST {{url_base}}/chats/5ZdwctcCKCei2yNakjohAx/continue-with-voice/
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary

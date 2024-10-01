@@ -38,10 +38,10 @@ class ChatService:
             raise NoChatFound("Chat not found")
         self._agent.set_memory_variables(chat.get_conversation_history())
         self._agent(query=query)
-        self.update_chat(chat)
+        self._update_chat(chat)
         return self._agent.get_last_response()
 
-    def update_chat(self, chat: models.Chat) -> None:
+    def _update_chat(self, chat: models.Chat) -> None:
         chat = models.Chat(id=chat.id)
         chat.update_conversation(self._agent.get_conversation_history())
         self._db.save_chat(chat)

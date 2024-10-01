@@ -28,8 +28,8 @@ class BootStrap:
 
         if not self._db:
             logger.info("Creating DynamoDb instance")
-            self._db = adapters.InMemoryChatRepository()
-            # self._db = adapters.DynamoDb(table_name=configurations.configs.table_name)
+            # self._db = adapters.InMemoryChatRepository()
+            self._db = adapters.DynamoDb(table_name=configurations.configs.table_name)
         if not self._agent:
             logger.info("Creating ChatOpenAI instance")
             llm = chat_models.ChatOpenAI(
