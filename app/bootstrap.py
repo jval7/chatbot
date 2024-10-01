@@ -56,8 +56,7 @@ class BootStrap:
                     name="Knowledge Base",
                     func=lambda x: retriever.run(query=x, callbacks=[langfuse_handler]),
                     description=(
-                        "use this tool when answering general knowledge queries to get "
-                        "more information about the topic"
+                        "use this tool when the user asks for something related to soft skills, such as communication, teamwork, problem-solving, or leadership, to provide comprehensive and insightful information on the topic."
                     ),
                 )
             ]
