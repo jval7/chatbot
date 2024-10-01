@@ -1,5 +1,5 @@
 #@url_base = http://localhost:8001/
-@url_base = http://44.202.163.193
+@url_base = http://52.90.91.186
 ### Start a new chat
 POST {{url_base}}/chats/
 Content-Type: application/json
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ### Continue an existing chat with text query
-POST {{url_base}}/chats/5MkyjFz8yoemGmdJCjaoQT/continue-with-voice
+POST {{url_base}}/chats/XoyTVZ8Yb7W9iMSvPWLrXG/continue-with-voice
 Content-Type: multipart/form-data; boundary=boundary
 
 --boundary
