@@ -1,6 +1,5 @@
 import pydantic_settings
 
-
 class Configs(pydantic_settings.BaseSettings):
     model_config = pydantic_settings.SettingsConfigDict(
         env_file=".env", env_file_encoding="utf-8"
@@ -22,6 +21,5 @@ class Configs(pydantic_settings.BaseSettings):
     langfuse_secret_key: str
     langfuse_pb_key: str
     langfuse_host: str
-
 
 configs = Configs()

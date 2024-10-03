@@ -1,4 +1,4 @@
-#@url_base = http://localhost:8001/
+@url_base = http://localhost:8000/
 ### Start a new chat
 POST {{url_base}}/chats/
 Content-Type: application/json
