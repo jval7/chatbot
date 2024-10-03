@@ -42,7 +42,6 @@ class ChatService:
         return self._agent.get_last_response()
 
     def _update_chat(self, chat: models.Chat) -> None:
-        chat = models.Chat(id=chat.id)
         chat.update_conversation(self._agent.get_conversation_history())
         self._db.save_chat(chat)
 
