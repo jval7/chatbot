@@ -16,7 +16,6 @@ class ChatRepository(abc.ABC):
     def get_chat(self, chat_id: str) -> models.Chat | None:
         pass
 
-
 class AgentPort(abc.ABC):
     @abc.abstractmethod
     def __call__(self, query: str) -> dict[str, Any]:
@@ -33,7 +32,6 @@ class AgentPort(abc.ABC):
     @abc.abstractmethod
     def get_last_response(self) -> str:
         ...
-
 
 class TranscriptionPort(ABC):
     @abstractmethod

@@ -173,7 +173,6 @@ def test_continue_conversation_chat_not_found():
 
 
 # test_usecases.py ubicado en tests/services
-
 import pytest
 from unittest.mock import Mock, patch
 from app.services.usecases import ChatService

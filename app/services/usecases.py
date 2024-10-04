@@ -50,6 +50,5 @@ class ChatService:
 class NoChatFound(Exception):
     pass
 
-
 class InputNotProvided(Exception):
     pass
