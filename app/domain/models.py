@@ -1,20 +1,25 @@
-from typing import cast
+# app/domain/models.py
 
+from typing import cast
 import shortuuid
 from langchain_core.messages import human, ai
 from pydantic import v1 as pd1
 
-
 def generate_uuid() -> str:
     return cast(str, shortuuid.uuid())
 
+# Excepciones personalizadas
+class NoChatFound(Exception):
+    """Excepción lanzada cuando no se encuentra un chat."""
+    pass
+
+class InputNotProvided(Exception):
+    """Excepción lanzada cuando no se proporciona entrada."""
+    pass
 
 # Entities
-
-
 class Conversation(pd1.BaseModel):
     history: list[ai.AIMessage | human.HumanMessage] = pd1.Field(default_factory=list)
-
 
 # Aggregates
 class Chat(pd1.BaseModel):
