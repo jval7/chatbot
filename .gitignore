@@ -2,7 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+# test_usecases.py ubicado en tests/services
+import pytest
+from unittest.mock import Mock, patch
+from app.services.usecases import ChatService
+from app.domain import models
 # C extensions
 *.so
 
@@ -37,7 +41,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
+# htmlcov/
 .tox/
 .nox/
 .coverage
