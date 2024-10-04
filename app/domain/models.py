@@ -15,6 +15,9 @@ def generate_uuid() -> str:
 class Conversation(pd1.BaseModel):
     history: list[ai.AIMessage | human.HumanMessage] = pd1.Field(default_factory=list)
 
+    class Config:
+        arbitrary_types_allowed = True
+
 
 # Aggregates
 class Chat(pd1.BaseModel):
