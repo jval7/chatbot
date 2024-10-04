@@ -21,11 +21,17 @@ class ChatService:
         return chat_model.id
 
     def continue_conversation(
-        self,
-        conversation_id: str,
-        query: str | None = None,
-        voice_file: bytes | None = None,
+            self,
+            conversation_id: str,
+            query: str | None = None,
+            voice_file: bytes | None = None,
     ) -> str:
+        # Primero, intentamos obtener el chat
+        chat = self._db.get_chat(conversation_id)
+        if chat is None:
+            raise NoChatFound("Chat not found")
+
+        # Ahora, manejamos la entrada de voz o texto
         if voice_file:
             query = self._transcriber.transcribe_audio(voice_file)
         elif query:
@@ -33,9 +39,6 @@ class ChatService:
         else:
             raise InputNotProvided("No input provided")
 
-        chat = self._db.get_chat(conversation_id)
-        if chat is None:
-            raise NoChatFound("Chat not found")
         self._agent.set_memory_variables(chat.get_conversation_history())
         self._agent(query=query)
         self._update_chat(chat)
