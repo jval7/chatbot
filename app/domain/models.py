@@ -1,5 +1,4 @@
 from typing import cast
-
 import shortuuid
 from langchain_core.messages import human, ai
 from pydantic import v1 as pd1
@@ -8,13 +7,12 @@ from pydantic import v1 as pd1
 def generate_uuid() -> str:
     return cast(str, shortuuid.uuid())
 
-
 # Entities
-
-
 class Conversation(pd1.BaseModel):
     history: list[ai.AIMessage | human.HumanMessage] = pd1.Field(default_factory=list)
 
+    class Config:
+        arbitrary_types_allowed = True  # Permitir tipos arbitrarios
 
 # Aggregates
 class Chat(pd1.BaseModel):
@@ -26,3 +24,6 @@ class Chat(pd1.BaseModel):
 
     def get_conversation_history(self) -> list[ai.BaseMessage]:
         return self.conversation.history
+
+    class Config:
+        arbitrary_types_allowed = True  # Permitir tipos arbitrarios
